@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Google Map";
+}
+
+<h2 class="style1"><strong>Where to find us</strong></h2>
+<div id="googleMap"></div>
+
+<script type="text/javascript">
+    function initMap() {
+        var myCenter = new google.maps.LatLng(44.468520, 26.080513);
+        var mapProp = { center: myCenter, zoom: 12, mapTypeId: google.maps.MapTypeId.ROADMAP };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        var marker = new google.maps.Marker({ position: myCenter });
+        marker.setMap(map);
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoO6fXNSMXtn-h4126_x3JH5Z6o0ZoDqI&callback=initMap">
+</script>

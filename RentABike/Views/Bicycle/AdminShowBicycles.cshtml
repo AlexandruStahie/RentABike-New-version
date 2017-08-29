@@ -1,0 +1,53 @@
+@model IEnumerable<RentABike.Models.Bicycle>
+
+@{
+    Layout = "~/Views/Shared/_EmptyAdminLayout.cshtml";
+}
+
+<div style="overflow-x:auto;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-left blackColor">Informations</th>
+                <th class="text-left blackColor">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var myBicycle in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="row">
+                            @{
+                                var base64 = Convert.ToBase64String(myBicycle.BicycleImg);
+                                var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+                            }
+
+                            <div class="col-md-3">
+                                <img class="img-responsive imageSize" src="@imgsrc" />
+                            </div>
+
+                            <div class="col-md-5">
+                                <span class="addmargin"><strong>Bicycle model: @myBicycle.BModel;</strong></span>
+                                <br />
+                                <span class="addmargin"><strong>Price per hour: @myBicycle.PricePerHour;</strong></span>
+                                <br />
+                            </div>
+
+                            <div class="col-md-5">
+                                <p>Details: @myBicycle.Details </p>
+                            </div>
+
+                        </div>
+                    </td>
+
+                    <td>
+                        <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</a><br />
+                        <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span> Delete</a><br />
+                        <a href="#" class="btn btn-default"><span class="glyphicon glyphicon-tasks"></span> Details</a><br />
+                    </td>
+                </tr>
+                                }
+        </tbody>
+    </table>
+</div>

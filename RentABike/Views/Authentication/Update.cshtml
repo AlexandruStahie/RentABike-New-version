@@ -1,0 +1,59 @@
+﻿@model RentABike.Models.User
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AccLayout.cshtml";
+}
+
+<div class="container-fluid"><br /><br /><br />
+    <h2 class="text-center style1">Update Account Settings</h2>
+    <br />
+
+    <div class="col-sm-12">
+        @using(Html.BeginForm("Update", "Authentication", FormMethod.Post))
+            {
+            @Html.HiddenFor(x => x.UserId)
+
+            <div class="row">
+                <div class="center">
+                    @Html.EditorFor(x => x.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "Username*", autocomplete = "off" } })
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control text-box single-line", placeholder = "Password*", autocomplete = "off" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    @Html.EditorFor(x => x.FirstName, new { htmlAttributes = new { @class = "form-control text-box single-line", placeholder = "Firstname", autocomplete = "off" } })
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    @Html.EditorFor(x => x.LastName, new { htmlAttributes = new { @class = "form-control text-box single-line", placeholder = "Lastname", autocomplete = "off" } })
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control text-box single-line", placeholder = "E-mail", autocomplete = "off" } })
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    @Html.EditorFor(x => x.Phone, new { htmlAttributes = new { @class = "form-control text-box single-line", placeholder = "Phone", autocomplete = "off" } })
+                </div>
+            </div>
+
+            <br />
+            <div class="row">
+                <div class="col-sm-11 form-group">
+                    <div class="centerbutton">
+                        <input type="submit" value="Update" />
+                        <a href="/Home/Index" class="btn btn-default"><span class="glyphicon glyphicon-home"></span> Home</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
